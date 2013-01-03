@@ -5,11 +5,13 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/jquery-ui.min.js"></script>
 <script src="http://harvesthq.github.com/chosen/chosen/chosen.jquery.js"></script>
-<script src="chosen.jquery-ui.js"></script>
+<script src="../js/chosen.jquery-ui.js"></script>
+
+<script src="https://raw.github.com/harborhoffer/Super-Theme-Switcher/master/jquery.themeswitcher.js"></script>
 
 
-<link rel="stylesheet" type="text/css" href="chosen_jqueryui.css"/>
-<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/sunny/jquery-ui.css"/>
+<link rel="stylesheet" type="text/css" href="../css/chosen_jqueryui.css"/>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.2/themes/redmond/jquery-ui.css"/>
 
 <style>
 	body .ui-widget{
@@ -23,17 +25,31 @@
 
 <script>
 $(document).ready(function(){
-	$("select").chosen({allow_single_deselect: true})
+	$("#singleSelection").chosen();
+	$("#multiSelection").chosen();
+	$("#deSelection").chosen({allow_single_deselect: true});
+	$("#multiPreSelection").chosen();
+	$("#optgroupSelection").chosen();
 	
 	$("button").button();
+	
+	$('#switcher').themeswitcher({
+		imgpath: "https://raw.github.com/harborhoffer/Super-Theme-Switcher/master/images/"
+	});
 });
 </script>
 
 </head>
 <body>
+<h1>jQuery UI Stylesheet for Chosen Testpage</h1>
 <div>
+	<span id="switcher"></span>
+	<a href="https://github.com/harborhoffer/Super-Theme-Switcher">Super-Theme-Switcher</a> by Dave Hoff</span>
+</div>
+<div>
+	<h2>Single Selection</h2>
 	Text text
-	<select style="width:350px;" data-placeholder="Choose a Country">
+	<select id="singleSelection" style="width:350px;" data-placeholder="Choose a Country">
 		<option value=""></option> 
 		<option value="Afghanistan">Afghanistan</option> 
 		<option value="Aland Islands">Aland Islands</option> 
@@ -81,10 +97,12 @@ $(document).ready(function(){
 	</select>
 	text text
 	<button>Push Me!</button>
-	mehr text
+	text text
 </div>
-<div>	
-	<select style="width:350px;" multiple="" data-placeholder="Choose a Country">
+<div>
+	<h2>Multiple Selections</h2>
+	Text text
+	<select id="multiSelection" style="width:350px;" multiple="" data-placeholder="Choose a Country"> 	
 		<option value=""></option> 
 		<option value="Afghanistan">Afghanistan</option> 
 		<option value="Aland Islands">Aland Islands</option> 
@@ -130,9 +148,14 @@ $(document).ready(function(){
 		<option value="Wallis and Futuna">Wallis and Futuna</option> 
 		<option value="Zimbabwe">Zimbabwe</option>
 	</select>
+	text text
+	<button>Push Me!</button>
+	text text
 </div>
-<div>	
-	<select style="width: 350px;" data-placeholder="Your Favorite Type of Bear" data-allow_single_deselect="true">
+<div>
+	<h2>Selected and Disabled Support / Deselection</h2>
+	Text text
+	<select id="deSelection" style="width: 350px;" data-placeholder="Your Favorite Type of Bear" data-allow_single_deselect="true">
 		<option value=""></option>
 		<option>American Black Bear</option>
 		<option>Asiatic Black Bear</option>
@@ -143,10 +166,14 @@ $(document).ready(function(){
 		<option>Polar Bear</option>
 		<option disabled="">Spectacled Bear</option>
 	</select>
+	text text
+	<button>Push Me!</button>
+	text text	
 </div>
 <div>
+	<h2>Selected and Disabled Support</h2>
 	Text text
-	<select multiple="" style="width: 350px" data-placeholder="Your Favorite Types of Bear">
+	<select id="multiPreSelection" multiple="" style="width: 350px" data-placeholder="Your Favorite Types of Bear">
 		<option value=""></option>
 		<option>American Black Bear</option>
 		<option>Asiatic Black Bear</option>
@@ -159,10 +186,12 @@ $(document).ready(function(){
 	</select>
 	text text
 	<button>Push Me!</button>
-	mehr text
+	text text
 </div>	
-<div>	
-	<select style="width: 350px;" multiple="" data-placeholder="Your Favorite Football Teams">
+<div>
+	<h2>Optgroups</h2>
+	Text text
+	<select id="optgroupSelection" style="width: 350px;" multiple="" data-placeholder="Your Favorite Football Teams">
 		<option value=""></option>
 		<optgroup label="NFC EAST">
 			<option>Dallas Cowboys</option>
@@ -213,6 +242,9 @@ $(document).ready(function(){
 			<option>San Diego Chargers</option>
 		</optgroup>
 	</select>
+	text text
+	<button>Push Me!</button>
+	text text
 </div>
 </body>
 </html>
